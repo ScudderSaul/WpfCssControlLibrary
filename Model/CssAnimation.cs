@@ -20,15 +20,15 @@ namespace WpfCssControlLibrary.Model
         public int Id { get; set; }
 
         [Required]
-        public string AnimationName { get; set; }
+        public string AnimationName { get; set; } = string.Empty;   
 
         public string AnimationDuration { get; set; } = string.Empty;
 
-        public string AnimationTimingFunction { get; set; } 
+        public string AnimationTimingFunction { get; set; } = string.Empty;
 
-        public string AnimationDelay { get; set; }
+        public string AnimationDelay { get; set; } = string.Empty;
 
-        public string AnimationIterationCount { get; set; } 
+        public string AnimationIterationCount { get; set; } = string.Empty;
 
         public string AnimationDirection { get; set; }=string.Empty;
 

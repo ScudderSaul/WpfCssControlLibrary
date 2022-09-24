@@ -510,7 +510,7 @@ namespace WpfCssControlLibrary.Controls
 
 
            // var ani = CssClassesToolControl.Context.CssAnimations
-            ani.Id = FindNextCssAnimationId();
+       //     ani.Id = FindNextCssAnimationId();
             ani.AnimationName = nam;
             ani.AnimationDelay = "0";
             ani.AnimationDuration = "1000";
@@ -886,7 +886,7 @@ namespace WpfCssControlLibrary.Controls
 
          //   var createdAnimation = CssClassesToolControl.Context.CssAnimations.Create();
             var createdAnimation = new CssAnimation();
-            createdAnimation.Id = FindNextCssAnimationId();
+        //    createdAnimation.Id = FindNextCssAnimationId();
             createdAnimation.AnimationDelay = CurrentAnimation.AnimationDelay;
             createdAnimation.AnimationDirection = CurrentAnimation.AnimationDirection;
             createdAnimation.AnimationDuration = CurrentAnimation.AnimationDuration;
