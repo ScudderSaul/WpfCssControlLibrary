@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="WpfCssControlLibrary.Controls.ColorButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="30" d:DesignWidth="200">
+    
+    <UserControl.Resources>
+        <LinearGradientBrush  x:Key="lgb" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF000000" Offset="0"/>
+            <GradientStop Color="#151111FF" Offset="0.6"/>
+            <GradientStop Color="#FF000000" Offset="1"/>
+        </LinearGradientBrush>
+    </UserControl.Resources>
+    <Button Click="ButtonBase_OnClick" Background="{StaticResource lgb}"
+            >
+<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="FirstColumn"  Width="7*"></ColumnDefinition>
+            <ColumnDefinition x:Name="SecondColumn"  Width="4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="TextShown" Text="None" FontSize="11" FontWeight="DemiBold" Grid.Column="0" 
+                       Width="{Binding ElementName=FirstColumn, Path=Width}"
+                       HorizontalAlignment="Left" Margin="3" ></TextBox>
+            <Border BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Right" Grid.Column="1" Width="50">
+                <Rectangle x:Name="ColorRectangle" 
+                            HorizontalAlignment="Right" Width="46" Margin="2"></Rectangle>
+            </Border>
+       
+        </Grid>
+    </Button>
+</UserControl>

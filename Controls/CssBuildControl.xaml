@@ -1,0 +1,137 @@
+﻿<UserControl x:Class="WpfCssControlLibrary.Controls.CssBuildControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+
+
+             xmlns:local="clr-namespace:WpfCssControlLibrary.Controls"
+            
+             mc:Ignorable="d" 
+             MinHeight="600" MinWidth="30"
+             d:DesignHeight="700" d:DesignWidth="700">
+
+    <UserControl.Resources>
+        <BrushConverter x:Key="BrushConverter"/>
+    </UserControl.Resources>
+    <Grid x:Name="StyleBuildGrid">
+        
+        <StackPanel >
+            <GroupBox x:Name="CommandBox" FontSize="10">
+                <WrapPanel Orientation="Horizontal" ToolTip="Commands" Background="Beige" >
+                    <Button x:Name="CreateStyleMenuItem"  ToolTip="Create a new css3 class in the database and select it as the current css3 style class"
+                            Content="New Style"  Opacity=".8" Margin="2"
+                            Click="CreateStyleButton_OnClick"></Button>
+                    <Button x:Name="DeleteStyleMenuItem" ToolTip="Delete the currently selected Css3 class style, It is deleted from the database and de-selected"
+                            Content="Delete Style"  Opacity=".8" Margin="2"
+                            Click="DeleteStyleButton_OnClick"></Button>
+                    <Button x:Name="CopyStyleMenuItem" ToolTip="Copy the selected Css3 style and also create a copy in the database"
+                            Content="Copy Style"  Opacity=".8" Margin="2"
+                            Click="CopyStyleButton_OnClick"></Button>
+                    <Button x:Name="BuildStyleMenuItem" ToolTip="Re-build the current Css3 class from its description in the database"
+                            Content="Rebuild Style"  Opacity=".8" Margin="2"
+                            Click="BuildStyleButton_OnClick"></Button>
+                    <Button x:Name="ShowStyleMenuItem"
+                            Content="Show Style"  Opacity=".8" Margin="2"
+                            Click="ShowStyleButton_OnClick"></Button>
+                    <Button x:Name="ChooseStyleMenuItem" ToolTip="Select a Css3 class to edit from the ones in the database"
+                            Content="Choose Style"  Opacity=".8" Margin="2"
+                            Click="ChooseStyleMenuItem_OnClick"></Button>
+                    <Button Content="Compose/View Animation" ToolTip="Switch to composing keyframe animations"
+                            x:Name="AnimationMenuItem"  Opacity=".8" Margin="2"
+                            Click="AnimationButton_OnClick" ></Button>
+                    <Button Content="Database" ToolTip="Database" x:Name="ReconnectButton" 
+                            Opacity=".8" Click="ReconnectButton_OnClick"  Width="50"
+                            Margin="2" HorizontalAlignment="Left"></Button>
+                    <Button Content="Save Css Script File" ToolTip="Save the current css3 class in a '.css' file"
+                            Opacity=".8" Click="WriteFileButton_OnClick" 
+                             Margin="2"></Button>
+                    <Button Content="Export" ToolTip="Export selected css3 classes to a '.css' file"
+                            Opacity=".8" Click="ExportButton_OnClick" 
+                             Margin="2"></Button>
+                    
+
+                </WrapPanel>
+            </GroupBox>
+            <Border BorderBrush="CornflowerBlue" BorderThickness="1">
+                <StackPanel Orientation="Horizontal">
+                    <GroupBox x:Name="ActionBox" HorizontalAlignment="Left" Content="{Binding Path=CssSettings, Mode=TwoWay}"  >
+                      
+                    </GroupBox>
+                    <GroupBox x:Name="ShowBox" HorizontalAlignment="Right" MaxWidth="{Binding Path=ThirdWidth, Mode=OneWay}">
+                        <StackPanel>
+                            <GroupBox x:Name="InfoBox" FontSize="10">
+                                <StackPanel>
+                                    <Expander BorderBrush="DarkBlue" BorderThickness="1">
+                                        <Expander.Header>
+                                            <GroupBox>
+                                                <GroupBox.Header>
+                                                    <TextBlock  HorizontalAlignment="Left" Text="{Binding Path=StyleName, Mode=OneWay}"
+                                       Margin="2,3,3,2"></TextBlock>
+                                                </GroupBox.Header>
+
+
+                                            </GroupBox>
+                                        </Expander.Header>
+                                        <StackPanel>
+                                            <TextBox Text="{Binding Path=StyleName, Mode=TwoWay}" FontWeight="Bold"
+                                     Width="140" Height="30" 
+                                 HorizontalAlignment="Stretch" Margin="2"></TextBox>
+                                            <ListBox BorderBrush="DarkBlue" BorderThickness="1"  
+                              ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                         ItemsSource="{Binding Path=CssStyleObservableCollection}" 
+        							    x:Name="StyleNameListView"  MinHeight="35" Foreground="Black"
+                                         MaxHeight="120"
+        							     SelectionChanged="StyleNameListView_OnSelectionChanged"  >
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border BorderBrush="DarkBlue" BorderThickness="1" >
+                                                            <TextBlock Text="{Binding Path=StyleName}"
+                                               Width="Auto" Height="24" FontSize="10" TextWrapping="Wrap" Margin="2" />
+
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+
+
+                                            </ListBox>
+
+                                        </StackPanel>
+                                    </Expander>
+                                    <Expander Margin="2">
+                                        <Expander.Header>
+                                            <Button Content="Animation " Margin="2"></Button>
+                                        </Expander.Header>
+                                        <WrapPanel Orientation="Vertical">
+
+                                            <Border BorderBrush="DarkBlue" BorderThickness="1">
+                                                <StackPanel >
+
+                                                    <CheckBox x:Name="UseWithAnimation" Content="Mix style with Animation"></CheckBox>
+                                                    <ComboBox x:Name="AnimationList" SelectedIndex="-1" SelectionChanged="AnimationList_OnSelectionChanged" MaxWidth="200"></ComboBox>
+                                                </StackPanel>
+                                            </Border>
+
+                                        </WrapPanel>
+
+                                    </Expander>
+                                </StackPanel>
+                            </GroupBox>
+                            <StackPanel>
+                                <Button  Width="33" HorizontalAlignment="Right" Margin="2,2,2,0" Height="18" x:Name="ClipboardCopyButton" Click="ClipboardCopyButton_OnClick">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Copy" FontSize="8" ToolTip="Copy script to clipboard"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                            <TextBox x:Name="ShowCssText"  Width="Auto" Height="Auto" MinLines="8" MouseEnter="ShowCssText_OnMouseEnter" >
+
+                            </TextBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,51 @@
+﻿<Window x:Class="WpfCssControlLibrary.Dialogs.ChooseFontWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        WindowStyle="ToolWindow" x:Name="FontChoiceWindow" Foreground="Black"
+        Title="Choose Font" Width="Auto" Height="Auto">
+
+	<!--<Window.Background>
+		<LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+			<GradientStop Color="#FF547479" Offset="0"/>
+			<GradientStop Color="#FF5E6566" Offset="1"/>
+			<GradientStop Color="#FF939B9C" Offset="0.066"/>
+			<GradientStop Color="#FFA3DCEB" Offset="0.458"/>
+			<GradientStop Color="#FF7D9096" Offset="0.653"/>
+			<GradientStop Color="#FF8FB4BB" Offset="0.916"/>
+		</LinearGradientBrush>
+	</Window.Background>-->
+
+
+    <ScrollViewer x:Name="FontScrollViewer" FontSize="9" Width="{Binding ElementName=FontChoiceWindow, Path=Width}"
+                         Height="{Binding ElementName=FontChoiceWindow, Path=Height}" >
+        <StackPanel>
+            <GroupBox Header="Selection" BorderBrush="DarkBlue" BorderThickness="1">
+            <StackPanel Orientation="Horizontal">
+               
+                <TextBlock x:Name="ChosenFont" FontSize="12" TextWrapping="Wrap" 
+                           Text="{Binding Path=FontSelected, Mode=TwoWay}" Margin="2"/>
+            </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Font Choices" FontSize="9" BorderBrush="DarkBlue" BorderThickness="2">
+                <WrapPanel x:Name="WrapFonts" Margin="2"></WrapPanel>
+            </GroupBox>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="OkButton"  
+                        Width="50"  Margin="20"
+                        Click="OkButton_OnClick"
+                        IsEnabled="True" 
+                        Content="Ok" >
+                </Button>
+                <Button x:Name="CancelButton"  
+                        Width="50"  Margin="20"
+                        Click="ExitButton_OnClick"
+                        IsEnabled="True" 
+                        Content="Cancel" >  
+                </Button>
+            </StackPanel>
+           
+        </StackPanel>
+    </ScrollViewer>
+</Window>
+

@@ -1,0 +1,311 @@
+﻿<UserControl x:Class="WpfCssControlLibrary.Controls.CssAnimationBuildControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+             mc:Ignorable="d" 
+             MinHeight="500" MinWidth="600"
+             d:DesignHeight="600" d:DesignWidth="720">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalAlignment="Top" HorizontalAlignment="Left"
+        MaxHeight="{Binding Path=FromHeight, Mode=OneWay}">
+
+        <StackPanel >
+
+            <GroupBox  Margin="3" FontSize="10">
+                <!--<GroupBox.Header>
+                    <TextBlock Text="Animation Commands"></TextBlock>
+                </GroupBox.Header>-->
+                <WrapPanel  Orientation="Horizontal" ToolTip="Animation Commands" Background="Beige">
+                    <Button x:Name="NewAnimationMenuItem"  ToolTip="Create a new keyframe animation in the database and make it the animation in the current view"
+                            Content="New Animation"  Opacity=".8"  Margin="2"
+                            Click="NewAnimationButton_OnClick"></Button>
+                    <Button x:Name="DeleteAnimationMenuItem"  ToolTip="Delete the current animation from the current view and the database"            
+                            Content="Delete Animation"  Opacity=".8"  Margin="2"
+                            Click="DeleteAnimationButton_OnClick"></Button>
+                    <Button x:Name="CopyAnimationMenuItem"
+                            Content="Copy Animation"  Opacity=".8"  Margin="2" ToolTip="Make a copy of the current animation"
+                            Click="CopyAnimationButton_OnClick"></Button>
+                    <!--<Button x:Name="BuildAnimationMenuItem" 
+                            Content="Show Animation"  Opacity=".8"  Margin="2"
+                            Click="ShowAnimationButton_OnClick"></Button>-->
+                    <Button x:Name="ChooseAnimationMenuItem" ToolTip="Select an keyframe animation from the animations in the database"
+                            Content="Choose Animation" Opacity=".8"  Margin="2"
+                            Click="ChooseAnimationMenuItem_OnClick"></Button>
+                    <Button x:Name="BuildAnimationButton" ToolTip="Rebuild a keyframe animation from its elements in the database"
+                            Content="Rebuild Animation" Opacity=".8"  Margin="2"
+                            Click="BuildAnimationButton_OnClick"></Button>
+                    <Button Content="Save Css File" Opacity=".8"  Margin="2" ToolTip="Write the current animation to a css file"
+                            Click="WriteFileButton_OnClick" ></Button>
+                    <Button Content="Compose/View Css3 class" ToolTip="Switch to editing css3 classes"           
+                            Opacity=".8"  Margin="2"
+                            Click="SettingsButton_OnClick" ></Button>
+                </WrapPanel>
+            </GroupBox>
+            <Border BorderBrush="CornflowerBlue" BorderThickness="1">
+                <StackPanel Orientation="Horizontal">
+                    <GroupBox x:Name="ActionBox" HorizontalAlignment="Left" FontSize="10">
+                        <StackPanel>
+                            <GroupBox >
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Button Content="Add a new step in the animation timeline" 
+                                                Opacity=".8" Click="AddStopButton_OnClick" 
+                                                Margin="2" 
+                                                ToolTip="Create a new timeline step. (Some settings must have been set in all other steps first)"></Button>
+                                        <Button Content="Change an animation Step's % Position" 
+                                                Opacity=".8" Click="ChangeOrderButton_OnClick" 
+                                                Margin="2" 
+                                                ToolTip="Change a timeline steps position, The step cannot be empty"></Button>
+                                        <Button Content="Delete an animation Step"  
+                                                Opacity=".8" Click="DeleteStopButton_OnClick" Margin="2" 
+                                                ToolTip="Delete a timeline step, (The tool can not delete the first and last steps)"></Button>
+                                    </StackPanel>
+                                    <TextBlock x:Name="StopKeyPercent" FontWeight="DemiBold" FontSize="11" MaxWidth="160" MinWidth="30"
+                                     HorizontalAlignment="Left"          TextWrapping="Wrap">
+                                    </TextBlock>
+
+
+                                    <ListBox x:Name="AllStops" HorizontalAlignment="Left" MaxHeight="400"
+                                              SelectionChanged="AllStops_OnSelectionChanged" MaxWidth="120" Margin="2" 
+                                                  ></ListBox>
+
+                                </StackPanel>
+                            </GroupBox>
+                            <GroupBox x:Name="CssSettingsGroup" Content="{Binding Path=CssSettings, Mode=TwoWay}" 
+                            Visibility="Visible">
+
+                            </GroupBox>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox x:Name="ShowBox" HorizontalAlignment="Right" FontSize="10">
+
+                        <StackPanel>
+
+
+                            <Expander BorderBrush="DarkBlue" BorderThickness="1" Margin="3">
+                                <Expander.Header>
+                                    <GroupBox>
+                                        <GroupBox.Header>
+                                            <TextBlock Text="Animation Settings"></TextBlock>
+                                        </GroupBox.Header>
+                                        <TextBox  
+                             x:Name="AnimationNameBox" Margin="3" Width="140" FontWeight="Bold"
+                             Text="{Binding Path=AnimationName, Mode=TwoWay}">
+                                        </TextBox>
+                                    </GroupBox>
+                                </Expander.Header>
+                                <StackPanel>
+                                    <ContentControl>
+                                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Grid.Column="0" Grid.Row="0" Text="Duration" Margin="3"></TextBlock>
+                                            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" >
+                                                <TextBox  
+                             x:Name="DurationTextBox" Margin="3" Width="100"
+                             Text="{Binding Path=AnimationDuration, Mode=TwoWay}">
+                                                </TextBox>
+                                                <TextBlock Text=" ms"></TextBlock>
+                                            </StackPanel>
+                                        </Grid>
+                                    </ContentControl>
+                                    <ContentControl>
+                                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Grid.Column="0" Grid.Row="0" Text="Delay" Margin="3"></TextBlock>
+                                            <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="0" >
+                                                <TextBox  
+                             x:Name="DelayTextBox" Margin="3" Width="100"
+                             Text="{Binding Path=AnimationDelay, Mode=TwoWay}">
+                                                </TextBox>
+                                                <TextBlock Text=" ms"></TextBlock>
+                                            </StackPanel>
+                                        </Grid>
+                                    </ContentControl>
+                                    <ContentControl>
+                                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="Direction " Grid.Row="0" Grid.Column="0" Margin="3" ></TextBlock>
+                                            <ComboBox x:Name="DirectionBox" SelectionChanged="DirectionBox_OnSelectionChanged"
+                                                  Width="120"  Margin="3"  Grid.Row="0" Grid.Column="1"
+                                                  SelectedIndex="0" >
+                                               
+                                                <ComboBox.Items>
+                                                    <TextBlock Text="normal"></TextBlock>
+                                                    <TextBlock Text="reverse"></TextBlock>
+                                                    <TextBlock Text="alternate"></TextBlock>
+                                                    <TextBlock Text="alternate-reverse"></TextBlock>
+                                                    <TextBlock Text="inherit"></TextBlock>
+                                                </ComboBox.Items>
+                                            </ComboBox>
+                                        </Grid>
+                                    </ContentControl>
+                                    <ContentControl>
+                                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="Timing Function" Grid.Row="0" Grid.Column="0" Margin="3" ></TextBlock>
+                                            <ComboBox x:Name="TimingFunctionBox"  SelectionChanged="TimingFunctionBox_OnSelectionChanged"
+                                                  Width="120"  Margin="3"  Grid.Row="0" Grid.Column="1"
+                                                  SelectedIndex="0" >
+                                             
+                                                <ComboBox.Items>
+                                                    <TextBlock Text="linear"></TextBlock>
+                                                    <TextBlock Text="ease"></TextBlock>
+                                                    <TextBlock Text="ease-in"></TextBlock>
+                                                    <TextBlock Text="ease-out"></TextBlock>
+                                                    <TextBlock Text="ease-in-out"></TextBlock>
+                                                    <TextBlock Text="Random-cubic-bezier"></TextBlock>
+                                                    <TextBlock Text="inherit"></TextBlock>
+                                                </ComboBox.Items>
+                                            </ComboBox>
+                                        </Grid>
+                                    </ContentControl>
+                                    <ContentControl>
+                                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="Play State" Grid.Row="0" Grid.Column="0" Margin="3" ></TextBlock>
+                                            <ComboBox x:Name="PlayStateBox"  SelectionChanged="PlayStateBox_OnSelectionChanged"
+                                                  Width="120"  Margin="3"  Grid.Row="0" Grid.Column="1"
+                                                  SelectedIndex="0" >
+                                               
+                                                <ComboBox.Items>
+                                                    <TextBlock Text="running"></TextBlock>
+                                                    <TextBlock Text="paused"></TextBlock>
+                                                    <TextBlock Text="inherit"></TextBlock>
+                                                </ComboBox.Items>
+                                            </ComboBox>
+                                        </Grid>
+                                    </ContentControl>
+                                    <ContentControl>
+                                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="Iteration Count" Grid.Row="0" Grid.Column="0" Margin="3" ></TextBlock>
+                                            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" >
+                                                <CheckBox x:Name="InfiniteCheck" Unchecked="InfiniteCheck_OnUnchecked"
+                                  Checked="InfiniteCheck_OnChecked"
+                                  Content="Infinite" Margin="2"></CheckBox>
+                                                <TextBox x:Name="IterationCountTextBox"
+                            Width="60" Margin="2" Text="{Binding Path=AnimationIterationCount}"
+                                 ></TextBox>
+                                            </StackPanel>
+                                        </Grid>
+                                    </ContentControl>
+                                    <ContentControl>
+                                        <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"></RowDefinition>
+
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="1*"></ColumnDefinition>
+                                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Text="Fill Mode" Grid.Row="0" Grid.Column="0" Margin="3" ></TextBlock>
+                                            <ComboBox x:Name="FillModeBox" SelectionChanged="FillModeBox_OnSelectionChanged" 
+                                                  Width="120"  Margin="3"  Grid.Row="0" Grid.Column="1"
+                                                  SelectedIndex="0" >
+                                              
+                                                <ComboBox.Items>
+                                                    <TextBlock Text="none"></TextBlock>
+                                                    <TextBlock Text="forwards"></TextBlock>
+                                                    <TextBlock Text="backwards"></TextBlock>
+                                                    <TextBlock Text="both"></TextBlock>
+                                                    <TextBlock Text="inherit"></TextBlock>
+                                                </ComboBox.Items>
+                                            </ComboBox>
+
+                                        </Grid>
+                                    </ContentControl>
+                                </StackPanel>
+                            </Expander>
+
+
+                            <Expander BorderBrush="DarkBlue" BorderThickness="1">
+                                <Expander.Header>
+                                    <GroupBox>
+                                        <GroupBox.Header>
+                                            <TextBlock Text="Select An Animation:" HorizontalAlignment="Left" 
+                                       Margin="2,3,3,2"></TextBlock>
+                                        </GroupBox.Header>
+
+                                        <TextBox Text="{Binding Path=AnimationName, Mode=TwoWay}" FontWeight="Bold"
+                                     Width="140" Height="30" ToolTip="Change an animation's name here"
+                                 HorizontalAlignment="Stretch" Margin="2"></TextBox>
+                                    </GroupBox>
+                                </Expander.Header>
+                                <StackPanel>
+                                    <ComboBox BorderBrush="DarkBlue" BorderThickness="1"  
+                           Margin="3" MinHeight="35"   Foreground="Black"
+                           x:Name="AnimationsComboBox" ToolTip="Choose the current animation (The Menu item 'Choose Animation' is better)"
+                            SelectionChanged="AnimationsComboBox_OnSelectionChanged">
+                                    </ComboBox>
+                                </StackPanel>
+                            </Expander>
+
+
+                            <StackPanel>
+                                <Button  Width="33" HorizontalAlignment="Right" Margin="2,2,2,0" Height="18" x:Name="ClipboardCopyButton" Click="ClipboardCopyButton_OnClick">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Copy" FontSize="8" ToolTip="Copy script to clipboard"></TextBlock>
+                                    </StackPanel>
+                                </Button>
+                                <TextBox x:Name="ShowCssText"  Width="Auto" Height="Auto" MinLines="8">
+
+                            </TextBox>
+
+                               
+                            </StackPanel>
+
+
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+    </ScrollViewer>
+</UserControl>

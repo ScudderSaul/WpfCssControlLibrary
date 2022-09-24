@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfCssControlLibrary.Dialogs.AddAnimationStopPosition"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        Title="AddAnimationStopPosition" Height="300" Width="300">
+    <StackPanel>
+    <StackPanel Margin="20,20,3,3" Orientation="Horizontal">
+        <TextBlock Text="Old stop at " ></TextBlock>
+            <TextBlock x:Name="FromStopText" MinWidth="30"></TextBlock>
+    </StackPanel>
+    <StackPanel Margin="20,20,3,3" Orientation="Horizontal">
+        <TextBlock Text="New stop at " ></TextBlock>
+            <TextBox x:Name="NStopText" Text="{Binding Path=ToStopText, Mode=TwoWay}" MinWidth="30"></TextBox>
+            <TextBlock Text="% "  ></TextBlock>
+        </StackPanel>
+        <StackPanel Margin="20,20,3,3" Orientation="Horizontal">
+            <Button x:Name="OkButton"
+                Content="Ok" Width="80" Margin="5"  Click="OkButton_OnClick"></Button>
+            <Button x:Name="CancelButton"
+                Content="Cancel"  Width="80" Margin="5" IsCancel="True" Click="CancelButton_OnClick" ></Button>
+        </StackPanel>
+    </StackPanel>
+</Window>
+

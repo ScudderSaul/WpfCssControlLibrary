@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="WpfCssControlLibrary.Controls.Shadow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             
+            
+             xmlns:controls1="clr-namespace:WpfCssControlLibrary.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="500">
+    <ScrollViewer BorderBrush="DarkBlue" BorderThickness="1" FontSize="10" MaxWidth="500" MaxHeight="500" Background="GhostWhite" MinHeight="50">
+        <StackPanel Orientation="Horizontal">
+            
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Left" VerticalAlignment="Top" >
+            <GroupBox BorderBrush="DarkBlue" BorderThickness="1" Padding="2" Width="425">
+                <GroupBox.Header>
+                    <TextBlock x:Name="ShadowBlockHeadText" Text="Shadow Box"></TextBlock>
+                </GroupBox.Header>
+                <WrapPanel Orientation="Horizontal" x:Name="BoxShadowsPanel">
+                    <controls1:BoxShadowControl x:Name="FirstShadowControl"></controls1:BoxShadowControl>
+                    <controls1:BoxShadowControl x:Name="SecondShadowControl"></controls1:BoxShadowControl>
+                    <controls1:BoxShadowControl x:Name="ThirdShadowControl"></controls1:BoxShadowControl>
+                        <controls1:BoxShadowControl x:Name="FourthShadowControl"></controls1:BoxShadowControl>
+                    </WrapPanel>
+            </GroupBox>
+        </StackPanel>
+            <Button x:Name="DoneButton" Content="Done" VerticalAlignment="Top" Margin ="9" Width="40" FontSize="12" Click="DoneButton_OnClick"></Button>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
