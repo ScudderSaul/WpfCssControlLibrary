@@ -642,5 +642,10 @@ namespace WpfCssControlLibrary.Controls
         {
             CssClassesToolControl.MainToolControl.UseCssControl.ShowStyleText();
         }
+
+        private void ShowCssText_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
     }
 }

@@ -36,6 +36,17 @@ namespace WpfCssControlLibrary
 
         private CssClassesToolControl? _toolcontent = new CssClassesToolControl(700,700);
 
+        public string LastStyleChosen = string.Empty;
+
+        public void FillLastStyleChosen()
+        {
+            if (_toolcontent != null)
+            {
+                _toolcontent.FillLastChosen();
+                LastStyleChosen = _toolcontent.LastChosen;
+            }
+        }
+
         #region ctor
 
         public CssControlWindow()
@@ -51,7 +62,7 @@ namespace WpfCssControlLibrary
 
         #endregion
 
-        private void MainWindow_Closing(object? sender, CancelEventArgs e)
+        void MainWindow_Closing(object? sender, CancelEventArgs e)
         {
            
         }

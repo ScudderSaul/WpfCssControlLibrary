@@ -61,6 +61,19 @@ namespace WpfCssControlLibrary.Controls
             //   Width = 950.0;
         }
 
+        public string LastChosen = string.Empty;
+
+        public void FillLastChosen()
+        {
+            if (_cssControl != null)
+            {
+                LastChosen = _cssControl.ShowCssText.Text;
+                if (string.IsNullOrWhiteSpace(LastChosen) == false)
+                {
+                    LastChosen = LastChosen.Trim();
+                }
+            }
+        }
 
 
 

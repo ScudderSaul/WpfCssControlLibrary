@@ -288,7 +288,8 @@
 
 
                             <StackPanel>
-                                <Button  Width="33" HorizontalAlignment="Right" Margin="2,2,2,0" Height="18" x:Name="ClipboardCopyButton" Click="ClipboardCopyButton_OnClick">
+                                <Button  Width="33" HorizontalAlignment="Right" Margin="2,2,2,0" Height="18" x:Name="ClipboardCopyButton" 
+                                         Click="ClipboardCopyButton_OnClick">
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="Copy" FontSize="8" ToolTip="Copy script to clipboard"></TextBlock>
                                     </StackPanel>
