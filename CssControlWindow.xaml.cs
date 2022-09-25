@@ -62,8 +62,19 @@ namespace WpfCssControlLibrary
 
         #endregion
 
+
+        public bool RealClose = false;
         void MainWindow_Closing(object? sender, CancelEventArgs e)
         {
+           if(RealClose == false)
+            {
+                e.Cancel = true;
+                this.Visibility = Visibility.Collapsed;
+            }
+           else
+            {
+                
+            }
            
         }
 
