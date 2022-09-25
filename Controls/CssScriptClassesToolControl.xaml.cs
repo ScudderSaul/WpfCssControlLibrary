@@ -214,9 +214,10 @@ namespace WpfCssControlLibrary.Controls
 
         private const string EdgeName = "Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge";
 
+
         public static void OpenBrowserPage(string htmlpage)
         {
-            string userdir = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            string userdir = System.Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             string path = userdir + @"/scriptfiletest.html";
 
             File.WriteAllText(path, htmlpage);
