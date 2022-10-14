@@ -1,9 +1,12 @@
 # WpfCssControlLibrary
-A library for a Css file generating addition to web page generation programs. 
-I moved the code from the visual studio extension 'CssComposition'  
-into the a library and modifed it to run in applications other than Visual Studio.
-This version uses Sqlite not the same database as is used in the Visual Studio extentsion.
-The port is still in progress so for now use at some risk.
+A library for a Css file generating addition to other programs. 
+I moved the code from the visual studio extension 'CssComposition' that I wrote 
+into a library and modifed it to run as a extension to applications other than Visual Studio.
+This version uses a Sqlite database and not the database used bye Visual Studio extentsion.
+I have also created a repository for a Wpf Application version that can be used independatly to create Css scripts.
+https://github.com/ScudderSaul/WpfGenerateCssScript I recomend using the wpf application or the
+visual studio extension as this version is not as usefull.
+Some bugs exist so for now use with caution.
 
 Copyright(c) 2019-2022 by Saul Scudder
 
