@@ -8,16 +8,16 @@
              xmlns:local="clr-namespace:WpfCssControlLibrary.Controls"
             
              mc:Ignorable="d" 
-             MinHeight="600" MinWidth="30"
+             Height="750" MinWidth="30"
              d:DesignHeight="700" d:DesignWidth="700">
 
     <UserControl.Resources>
         <BrushConverter x:Key="BrushConverter"/>
     </UserControl.Resources>
-    <Grid x:Name="StyleBuildGrid">
+    <Grid x:Name="StyleBuildGrid" Height="Auto">
         
         <StackPanel >
-            <GroupBox x:Name="CommandBox" FontSize="10">
+            <GroupBox x:Name="CommandBox" FontSize="11">
                 <WrapPanel Orientation="Horizontal" ToolTip="Commands" Background="Beige" >
                     <Button x:Name="CreateStyleMenuItem"  ToolTip="Create a new css3 class in the database and select it as the current css3 style class"
                             Content="New Style"  Opacity=".8" Margin="2"
@@ -60,7 +60,7 @@
                     </GroupBox>
                     <GroupBox x:Name="ShowBox" HorizontalAlignment="Right" MaxWidth="{Binding Path=ThirdWidth, Mode=OneWay}">
                         <StackPanel>
-                            <GroupBox x:Name="InfoBox" FontSize="10">
+                            <GroupBox x:Name="InfoBox" FontSize="11">
                                 <StackPanel>
                                     <Expander BorderBrush="DarkBlue" BorderThickness="1">
                                         <Expander.Header>
@@ -87,7 +87,7 @@
                                                     <DataTemplate>
                                                         <Border BorderBrush="DarkBlue" BorderThickness="1" >
                                                             <TextBlock Text="{Binding Path=StyleName}"
-                                               Width="Auto" Height="24" FontSize="10" TextWrapping="Wrap" Margin="2" />
+                                               Width="Auto" Height="24" FontSize="11" TextWrapping="Wrap" Margin="2" />
 
                                                         </Border>
                                                     </DataTemplate>
@@ -121,7 +121,7 @@
                                 <Button  Width="33" HorizontalAlignment="Right" Margin="2,2,2,0" Height="18" 
                                          x:Name="ClipboardCopyButton" Click="ClipboardCopyButton_OnClick">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="Copy" FontSize="8" ToolTip="Copy script to clipboard"></TextBlock>
+                                        <TextBlock Text="Copy" FontSize="11" ToolTip="Copy script to clipboard"></TextBlock>
                                     </StackPanel>
                                 </Button>
                             <TextBox x:Name="ShowCssText"  Width="Auto" Height="Auto" MinLines="8" TextChanged="ShowCssText_TextChanged"

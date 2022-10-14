@@ -8,7 +8,7 @@
              xmlns:controls1="clr-namespace:WpfCssControlLibrary.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="500">
-    <ScrollViewer BorderBrush="DarkBlue" BorderThickness="1" FontSize="10" MaxWidth="500" MaxHeight="500" Background="GhostWhite" MinHeight="50">
+    <ScrollViewer BorderBrush="DarkBlue" BorderThickness="1" FontSize="11" MaxWidth="500" MaxHeight="500" Background="GhostWhite" MinHeight="50">
         <StackPanel Orientation="Horizontal">
             
         <StackPanel Orientation="Vertical"  HorizontalAlignment="Left" VerticalAlignment="Top" >

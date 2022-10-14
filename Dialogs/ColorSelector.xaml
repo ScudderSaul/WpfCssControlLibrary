@@ -23,7 +23,7 @@
             <StackPanel  Orientation="Horizontal" Margin="6">
                 <RadioButton x:Name="LinearGradient" 
                              Click="LinearGradient_OnClick" 
-                            FontSize="10" Content="Linear Gradient" IsChecked="{Binding LinearMode, Mode=TwoWay}"
+                            FontSize="11" Content="Linear Gradient" IsChecked="{Binding LinearMode, Mode=TwoWay}"
                              HorizontalAlignment="Center" VerticalAlignment="Top"  >
                     <RadioButton.LayoutTransform>
                         <RotateTransform CenterX="10" CenterY="10" Angle="90" />
@@ -32,14 +32,14 @@
               
                 <RadioButton x:Name="FlatColor" IsChecked="{Binding FlatMode, Mode=TwoWay}"
                              Click="FlatColor_OnClick"
-                            FontSize="10" Content="Flat Color" HorizontalAlignment="Center" VerticalAlignment="Top"  >
+                            FontSize="11" Content="Flat Color" HorizontalAlignment="Center" VerticalAlignment="Top"  >
                     <RadioButton.LayoutTransform>
                         <RotateTransform CenterX="10" CenterY="10" Angle="90" />
                     </RadioButton.LayoutTransform>
                 </RadioButton>
                 <RadioButton x:Name="RadialGradient" IsChecked="{Binding RadialMode, Mode=TwoWay}"
                              Click="RadialGradient_OnClick"
-                            FontSize="10" Content="Radial Gradient " HorizontalAlignment="Center" VerticalAlignment="Top"  >
+                            FontSize="11" Content="Radial Gradient " HorizontalAlignment="Center" VerticalAlignment="Top"  >
                     <RadioButton.LayoutTransform>
                         <RotateTransform CenterX="10" CenterY="10" Angle="90" />
                     </RadioButton.LayoutTransform>

@@ -12,7 +12,7 @@
 
         <StackPanel >
 
-            <GroupBox  Margin="3" FontSize="10">
+            <GroupBox  Margin="3" FontSize="11">
                 <!--<GroupBox.Header>
                     <TextBlock Text="Animation Commands"></TextBlock>
                 </GroupBox.Header>-->
@@ -44,7 +44,7 @@
             </GroupBox>
             <Border BorderBrush="CornflowerBlue" BorderThickness="1">
                 <StackPanel Orientation="Horizontal">
-                    <GroupBox x:Name="ActionBox" HorizontalAlignment="Left" FontSize="10">
+                    <GroupBox x:Name="ActionBox" HorizontalAlignment="Left" FontSize="11">
                         <StackPanel>
                             <GroupBox >
                                 <StackPanel>
@@ -78,7 +78,7 @@
                             </GroupBox>
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox x:Name="ShowBox" HorizontalAlignment="Right" FontSize="10">
+                    <GroupBox x:Name="ShowBox" HorizontalAlignment="Right" FontSize="11">
 
                         <StackPanel>
 
@@ -291,7 +291,7 @@
                                 <Button  Width="33" HorizontalAlignment="Right" Margin="2,2,2,0" Height="18" x:Name="ClipboardCopyButton" 
                                          Click="ClipboardCopyButton_OnClick">
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="Copy" FontSize="8" ToolTip="Copy script to clipboard"></TextBlock>
+                                        <TextBlock Text="Copy" FontSize="11" ToolTip="Copy script to clipboard"></TextBlock>
                                     </StackPanel>
                                 </Button>
                                 <TextBox x:Name="ShowCssText"  Width="Auto" Height="Auto" MinLines="8">

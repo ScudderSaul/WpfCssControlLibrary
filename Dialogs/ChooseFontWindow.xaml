@@ -17,7 +17,7 @@
 	</Window.Background>-->
 
 
-    <ScrollViewer x:Name="FontScrollViewer" FontSize="9" Width="{Binding ElementName=FontChoiceWindow, Path=Width}"
+    <ScrollViewer x:Name="FontScrollViewer" FontSize="11" Width="{Binding ElementName=FontChoiceWindow, Path=Width}"
                          Height="{Binding ElementName=FontChoiceWindow, Path=Height}" >
         <StackPanel>
             <GroupBox Header="Selection" BorderBrush="DarkBlue" BorderThickness="1">
@@ -27,7 +27,7 @@
                            Text="{Binding Path=FontSelected, Mode=TwoWay}" Margin="2"/>
             </StackPanel>
             </GroupBox>
-            <GroupBox Header="Font Choices" FontSize="9" BorderBrush="DarkBlue" BorderThickness="2">
+            <GroupBox Header="Font Choices" FontSize="11" BorderBrush="DarkBlue" BorderThickness="2">
                 <WrapPanel x:Name="WrapFonts" Margin="2"></WrapPanel>
             </GroupBox>
             <StackPanel Orientation="Horizontal">

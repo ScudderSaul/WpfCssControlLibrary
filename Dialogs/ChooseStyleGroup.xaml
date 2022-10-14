@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Css_Classes2019"
             
-             mc:Ignorable="d" Title="Choose Css3 classes for Export" MaxWidth="700" MaxHeight="700" FontSize="10"
+             mc:Ignorable="d" Title="Choose Css3 classes for Export" MaxWidth="700" MaxHeight="700" FontSize="11"
              d:DesignHeight="300" d:DesignWidth="300">
     <ScrollViewer >
         <Border BorderBrush="LightBlue" BorderThickness="2">

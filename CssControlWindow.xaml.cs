@@ -34,7 +34,7 @@ namespace WpfCssControlLibrary
        // private static CssModel? _context = null;
 
 
-        private CssClassesToolControl? _toolcontent = new CssClassesToolControl(700,700);
+        private CssClassesToolControl? _toolcontent = new CssClassesToolControl(780,780);
 
         public string LastStyleChosen = string.Empty;
 
