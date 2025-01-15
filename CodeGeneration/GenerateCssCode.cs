@@ -9,7 +9,7 @@ namespace WpfCssControlLibrary.CodeGeneration
     {
         public override string GetDefaultExtension()
         {
-            return(".css");
+            return (".css");
         }
 
         protected override byte[] GenerateCode(string inputFileName, string inputFileContent)
