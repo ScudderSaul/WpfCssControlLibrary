@@ -8,7 +8,9 @@ https://github.com/ScudderSaul/WpfGenerateCssScript I recomend using the wpf app
 visual studio extension as this version is not as usefull.
 Some bugs exist so for now use with caution.
 
-Copyright(c) 2019-2022 by Saul Scudder
+jan 15 2025 Modified to no longer use an older visual library the change is untested.
+
+Copyright(c) 2019-2025 by Saul Scudder
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files(the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and /or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
